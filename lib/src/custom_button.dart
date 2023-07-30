@@ -2,50 +2,76 @@ import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
-    super.key,
+    Key? key,
     required this.onPressed,
-    required this.onLongPressed,
-    required this.child,
-    required this.height,
-    required this.width,
-    this.elevation,
-    this.padding,
-    this.color,
+    required this.hasIcon,
+    required this.text,
+    this.textStyle,
+    this.height,
+    this.width,
     this.radius,
-    this.borderSide,
     this.splashColor,
-  });
+    this.gradient,
+    this.boxShadow,
+    this.elevation,
+    this.backgroundColor,
+  }) : super(key: key);
 
-  final VoidCallback? onPressed;
-  final VoidCallback? onLongPressed;
-  final double height;
-  final double width;
-  final double? elevation;
-  final EdgeInsetsGeometry? padding;
-  final Color? color;
-  final Color? splashColor;
+  final VoidCallback onPressed;
+  final String text;
+  final bool hasIcon;
+  final TextStyle? textStyle;
+  final double? height;
+  final double? width;
   final double? radius;
-  final BorderSide? borderSide;
-  final Widget child;
+  final double? elevation;
+  final Color? splashColor;
+  final Color? backgroundColor;
+  final Gradient? gradient;
+  final List<BoxShadow>? boxShadow;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: height,
-      width: width,
-      child: MaterialButton(
-        onPressed: onPressed,
-        onLongPress: onLongPressed,
-        highlightElevation: 0,
-        elevation: elevation ?? 0,
-        padding: padding,
-        color: color,
+    return Material(
+      color: Colors.transparent,
+      elevation: elevation ?? 0,
+      child: InkWell(
         splashColor: splashColor,
-        shape: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(radius ?? 0),
-          borderSide: borderSide ?? BorderSide.none,
+        borderRadius: BorderRadius.circular(radius ?? 50.0),
+        onTap: onPressed,
+        child: Container(
+          height: height ?? 50,
+          width: width ?? 150,
+          decoration: BoxDecoration(
+            color: backgroundColor,
+            borderRadius: BorderRadius.circular(radius ?? 50.0),
+            boxShadow: boxShadow,
+            gradient: gradient,
+          ),
+          child: hasIcon
+              ? Row(
+                  children: <Widget>[
+                    const Spacer(
+                      flex: 1,
+                    ),
+                    const Icon(
+                      Icons.phone,
+                      color: Colors.white,
+                      size: 25,
+                    ),
+                    const Spacer(
+                      flex: 2,
+                    ),
+                    Text(text, style: textStyle),
+                    const Spacer(
+                      flex: 3,
+                    ),
+                  ],
+                )
+              : Center(
+                  child: Text(text, style: textStyle),
+                ),
         ),
-        child: child,
       ),
     );
   }
