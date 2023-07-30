@@ -15,11 +15,17 @@ class CustomButton extends StatelessWidget {
     this.boxShadow,
     this.elevation,
     this.backgroundColor,
+    this.icon,
+    this.iconColor,
+    this.iconSize,
   }) : super(key: key);
 
   final VoidCallback onPressed;
   final String text;
   final bool hasIcon;
+  final IconData? icon;
+  final Color? iconColor;
+  final double? iconSize;
   final TextStyle? textStyle;
   final double? height;
   final double? width;
@@ -54,10 +60,10 @@ class CustomButton extends StatelessWidget {
                     const Spacer(
                       flex: 1,
                     ),
-                    const Icon(
-                      Icons.phone,
-                      color: Colors.white,
-                      size: 25,
+                    Icon(
+                      icon,
+                      color: iconColor,
+                      size: iconSize,
                     ),
                     const Spacer(
                       flex: 2,
