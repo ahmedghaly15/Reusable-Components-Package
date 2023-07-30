@@ -40,9 +40,9 @@ dependencies:
 
 2. **Install dependencies**:
 
-   ```bash
-   flutter pub get
-   ```
+```
+flutter pub get
+```
 
 3. **Import the package in your Dart code:**
 
