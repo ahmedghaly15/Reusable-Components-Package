@@ -27,7 +27,7 @@ class CustomSearchTextField extends StatelessWidget {
   final double? height;
   final double? width;
   final EdgeInsetsGeometry? contentPadding;
-  final BoxShadow? boxShadow;
+  final List<BoxShadow>? boxShadow;
   final TextEditingController searchTextFieldController;
   final String hint;
   final TextStyle hintStyle;

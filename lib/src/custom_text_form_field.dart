@@ -54,7 +54,7 @@ class CustomTextFormField extends StatelessWidget {
   final Color? errorBorderColor;
   final Color? cursorColor;
   final EdgeInsetsGeometry? contentPadding;
-  final BoxShadow? boxShadow;
+  final List<BoxShadow>? boxShadow;
 
   @override
   Widget build(BuildContext context) {
@@ -64,15 +64,7 @@ class CustomTextFormField extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(radius ?? 10.0),
-        boxShadow: [
-          boxShadow ??
-              BoxShadow(
-                color: const Color(0xFF000000).withOpacity(0.25),
-                blurRadius: 8,
-                spreadRadius: 2,
-                offset: const Offset(8, 4),
-              ),
-        ],
+        boxShadow: boxShadow,
       ),
       child: TextFormField(
         controller: controller,
