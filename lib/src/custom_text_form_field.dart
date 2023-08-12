@@ -24,6 +24,7 @@ class CustomTextFormField extends StatelessWidget {
     this.radius,
     this.suffixIconColor,
     this.prefixIconColor,
+    this.border,
     this.focusedBorderColor,
     this.enabledBorderColor,
     this.errorBorderColor,
@@ -54,6 +55,7 @@ class CustomTextFormField extends StatelessWidget {
   final double? width;
   final double? radius;
   final Color? backgroundColor;
+  final InputBorder? border;
   final Color? focusedBorderColor;
   final double? focusedBorderWidth;
   final Color? enabledBorderColor;
@@ -101,7 +103,7 @@ class CustomTextFormField extends StatelessWidget {
               errorBorderColor ?? Colors.red,
               errorBorderWidth ?? 0,
             ),
-            border: InputBorder.none,
+            border: border ?? InputBorder.none,
           ),
           style: style ??
               const TextStyle(
