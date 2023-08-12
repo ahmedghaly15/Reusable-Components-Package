@@ -69,54 +69,61 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height ?? 50,
-      width: width ?? 150,
-      alignment: Alignment.center,
+      height: height ?? 60,
+      width: width ?? 380,
       decoration: BoxDecoration(
         color: backgroundColor ?? Colors.white,
         borderRadius: BorderRadius.circular(radius ?? 10.0),
         boxShadow: boxShadow,
       ),
-      child: TextFormField(
-        controller: controller,
-        focusNode: focusNode,
-        decoration: InputDecoration(
-          suffixIcon: suffixIcon,
-          suffixIconColor: suffixIconColor,
-          prefixIcon: prefixIcon,
-          prefixIconColor: prefixIconColor,
-          hintText: hint,
-          hintStyle: hintStyle,
-          contentPadding: contentPadding ??
-              const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          enabledBorder: buildOutlineInputBorder(
-            enabledBorderColor ?? Colors.white,
-            enabledBorderWidth ?? 0,
-          ),
-          focusedBorder: buildOutlineInputBorder(
-            focusedBorderColor ?? Colors.blue,
-            focusedBorderWidth ?? 2,
-          ),
-          errorBorder: buildOutlineInputBorder(
-            errorBorderColor ?? Colors.red,
-            errorBorderWidth ?? 0,
-          ),
-          border: border ?? InputBorder.none,
-        ),
-        style: style ??
-            const TextStyle(
-              color: Colors.black,
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Expanded(
+            child: TextFormField(
+              controller: controller,
+              focusNode: focusNode,
+              decoration: InputDecoration(
+                suffixIcon: suffixIcon,
+                suffixIconColor: suffixIconColor,
+                prefixIcon: prefixIcon,
+                prefixIconColor: prefixIconColor,
+                hintText: hint,
+                hintStyle: hintStyle,
+                contentPadding: contentPadding ??
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                enabledBorder: buildOutlineInputBorder(
+                  enabledBorderColor ?? Colors.white,
+                  enabledBorderWidth ?? 0,
+                ),
+                focusedBorder: buildOutlineInputBorder(
+                  focusedBorderColor ?? Colors.blue,
+                  focusedBorderWidth ?? 2,
+                ),
+                errorBorder: buildOutlineInputBorder(
+                  errorBorderColor ?? Colors.red,
+                  errorBorderWidth ?? 0,
+                ),
+                border: border ?? InputBorder.none,
+              ),
+              style: style ??
+                  const TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                  ),
+              cursorColor: cursorColor,
+              obscureText: obscure ?? false,
+              keyboardType: keyboardType,
+              textCapitalization: textCapitalization,
+              validator: validating,
+              onFieldSubmitted: onSubmit,
+              onEditingComplete: onEditingComplete,
+              onChanged: onChanged,
             ),
-        cursorColor: cursorColor,
-        obscureText: obscure ?? false,
-        keyboardType: keyboardType,
-        textCapitalization: textCapitalization,
-        validator: validating,
-        onFieldSubmitted: onSubmit,
-        onEditingComplete: onEditingComplete,
-        onChanged: onChanged,
+          ),
+        ],
       ),
     );
   }
