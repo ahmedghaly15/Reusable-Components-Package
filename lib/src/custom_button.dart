@@ -4,9 +4,8 @@ class CustomButton extends StatelessWidget {
   const CustomButton({
     Key? key,
     required this.onPressed,
-    required this.hasIcon,
-    required this.text,
-    this.textStyle,
+    required this.child,
+    required this.hasPrefix,
     this.height,
     this.width,
     this.radius,
@@ -15,18 +14,13 @@ class CustomButton extends StatelessWidget {
     this.boxShadow,
     this.elevation,
     this.backgroundColor,
-    this.icon,
-    this.iconColor,
-    this.iconSize,
+    this.prefixWidget,
   }) : super(key: key);
 
   final VoidCallback onPressed;
-  final String text;
-  final bool hasIcon;
-  final IconData? icon;
-  final Color? iconColor;
-  final double? iconSize;
-  final TextStyle? textStyle;
+  final Widget child;
+  final bool hasPrefix;
+  final Widget? prefixWidget;
   final double? height;
   final double? width;
   final double? radius;
@@ -54,29 +48,23 @@ class CustomButton extends StatelessWidget {
             boxShadow: boxShadow,
             gradient: gradient,
           ),
-          child: hasIcon
+          child: hasPrefix
               ? Row(
                   children: <Widget>[
                     const Spacer(
                       flex: 1,
                     ),
-                    Icon(
-                      icon,
-                      color: iconColor,
-                      size: iconSize,
-                    ),
+                    prefixWidget!,
                     const Spacer(
                       flex: 2,
                     ),
-                    Text(text, style: textStyle),
+                    child,
                     const Spacer(
                       flex: 3,
                     ),
                   ],
                 )
-              : Center(
-                  child: Text(text, style: textStyle),
-                ),
+              : child,
         ),
       ),
     );
