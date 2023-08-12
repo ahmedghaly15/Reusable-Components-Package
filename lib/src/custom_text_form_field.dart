@@ -29,6 +29,9 @@ class CustomTextFormField extends StatelessWidget {
     this.errorBorderColor,
     this.style,
     this.cursorColor,
+    this.focusedBorderWidth,
+    this.enabledBorderWidth,
+    this.errorBorderWidth,
   }) : super(key: key);
 
   final FocusNode? focusNode;
@@ -52,8 +55,11 @@ class CustomTextFormField extends StatelessWidget {
   final double? radius;
   final Color? backgroundColor;
   final Color? focusedBorderColor;
+  final double? focusedBorderWidth;
   final Color? enabledBorderColor;
+  final double? enabledBorderWidth;
   final Color? errorBorderColor;
+  final double? errorBorderWidth;
   final Color? cursorColor;
   final EdgeInsetsGeometry? contentPadding;
   final List<BoxShadow>? boxShadow;
@@ -83,12 +89,18 @@ class CustomTextFormField extends StatelessWidget {
             hintStyle: hintStyle,
             contentPadding: contentPadding ??
                 const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            enabledBorder:
-                buildOutlineInputBorder(enabledBorderColor ?? Colors.white, 0),
-            focusedBorder:
-                buildOutlineInputBorder(focusedBorderColor ?? Colors.blue, 2),
-            errorBorder:
-                buildOutlineInputBorder(errorBorderColor ?? Colors.red, 0),
+            enabledBorder: buildOutlineInputBorder(
+              enabledBorderColor ?? Colors.white,
+              enabledBorderWidth ?? 0,
+            ),
+            focusedBorder: buildOutlineInputBorder(
+              focusedBorderColor ?? Colors.blue,
+              focusedBorderWidth ?? 2,
+            ),
+            errorBorder: buildOutlineInputBorder(
+              errorBorderColor ?? Colors.red,
+              errorBorderWidth ?? 0,
+            ),
             border: InputBorder.none,
           ),
           style: style ??
