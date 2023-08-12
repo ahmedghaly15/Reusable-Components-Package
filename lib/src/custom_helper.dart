@@ -109,13 +109,28 @@ abstract class CustomHelper {
     return color;
   }
 
-  static void validatingPasswordField(String? value, BuildContext context) {
+  static void validatingPasswordField({
+    required BuildContext context,
+    String? value,
+    Duration? duration = const Duration(milliseconds: 3500),
+    SnackPosition? snackPosition = SnackPosition.BOTTOM,
+    SnackStyle? snackStyle = SnackStyle.FLOATING,
+    Curve? forwardAnimationCurve,
+    Curve? reverseAnimationCurve,
+    Duration? animationDuration = const Duration(milliseconds: 400),
+  }) {
     if (value!.isEmpty) {
       CustomHelper.buildSnackBar(
         context: context,
         title: "Something went wrong",
         message: "Enter your Password!",
         state: SnackBarStates.error,
+        duration: duration,
+        forwardAnimationCurve: forwardAnimationCurve ?? Curves.easeInBack,
+        reverseAnimationCurve: reverseAnimationCurve ?? Curves.easeOutBack,
+        animationDuration: animationDuration,
+        snackPosition: snackPosition,
+        snackStyle: snackStyle,
       );
     } else if (value.length < 8) {
       CustomHelper.buildSnackBar(
@@ -123,17 +138,38 @@ abstract class CustomHelper {
         title: "Something went wrong",
         message: "Too short password!",
         state: SnackBarStates.error,
+        duration: duration,
+        forwardAnimationCurve: forwardAnimationCurve ?? Curves.easeInBack,
+        reverseAnimationCurve: reverseAnimationCurve ?? Curves.easeOutBack,
+        animationDuration: animationDuration,
+        snackPosition: snackPosition,
+        snackStyle: snackStyle,
       );
     }
   }
 
-  static void validatingEmailField(String? value, BuildContext context) {
+  static void validatingEmailField({
+    required BuildContext context,
+    String? value,
+    Duration? duration = const Duration(milliseconds: 3500),
+    SnackPosition? snackPosition = SnackPosition.BOTTOM,
+    SnackStyle? snackStyle = SnackStyle.FLOATING,
+    Curve? forwardAnimationCurve,
+    Curve? reverseAnimationCurve,
+    Duration? animationDuration = const Duration(milliseconds: 400),
+  }) {
     if (value!.isEmpty) {
       CustomHelper.buildSnackBar(
         context: context,
         title: "Something went wrong",
         message: "Enter your Email!",
         state: SnackBarStates.error,
+        duration: duration,
+        forwardAnimationCurve: forwardAnimationCurve ?? Curves.easeInBack,
+        reverseAnimationCurve: reverseAnimationCurve ?? Curves.easeOutBack,
+        animationDuration: animationDuration,
+        snackPosition: snackPosition,
+        snackStyle: snackStyle,
       );
     } else if (!value.contains('@')) {
       CustomHelper.buildSnackBar(
@@ -141,17 +177,38 @@ abstract class CustomHelper {
         title: "Something went wrong",
         message: "Incorrect Email!",
         state: SnackBarStates.error,
+        duration: duration,
+        forwardAnimationCurve: forwardAnimationCurve ?? Curves.easeInBack,
+        reverseAnimationCurve: reverseAnimationCurve ?? Curves.easeOutBack,
+        animationDuration: animationDuration,
+        snackPosition: snackPosition,
+        snackStyle: snackStyle,
       );
     }
   }
 
-  static void validatingPhoneField(String? value, BuildContext context) {
+  static void validatingPhoneField({
+    required BuildContext context,
+    String? value,
+    Duration? duration = const Duration(milliseconds: 3500),
+    SnackPosition? snackPosition = SnackPosition.BOTTOM,
+    SnackStyle? snackStyle = SnackStyle.FLOATING,
+    Curve? forwardAnimationCurve,
+    Curve? reverseAnimationCurve,
+    Duration? animationDuration = const Duration(milliseconds: 400),
+  }) {
     if (value!.isEmpty) {
       CustomHelper.buildSnackBar(
         context: context,
         title: "Something went wrong",
         message: "Enter your Phone Number!",
         state: SnackBarStates.error,
+        duration: duration,
+        forwardAnimationCurve: forwardAnimationCurve ?? Curves.easeInBack,
+        reverseAnimationCurve: reverseAnimationCurve ?? Curves.easeOutBack,
+        animationDuration: animationDuration,
+        snackPosition: snackPosition,
+        snackStyle: snackStyle,
       );
     } else if (value.length < 10) {
       CustomHelper.buildSnackBar(
@@ -159,21 +216,39 @@ abstract class CustomHelper {
         title: "Something went wrong",
         message: "Too short Phone Number!",
         state: SnackBarStates.error,
+        duration: duration,
+        forwardAnimationCurve: forwardAnimationCurve ?? Curves.easeInBack,
+        reverseAnimationCurve: reverseAnimationCurve ?? Curves.easeOutBack,
+        animationDuration: animationDuration,
+        snackPosition: snackPosition,
+        snackStyle: snackStyle,
       );
     }
   }
 
-  static void validatingConfirmPassField(
+  static void validatingConfirmPassField({
+    required BuildContext context,
+    required TextEditingController passController,
     String? value,
-    BuildContext context,
-    TextEditingController passController,
-  ) {
+    Duration? duration = const Duration(milliseconds: 3500),
+    SnackPosition? snackPosition = SnackPosition.BOTTOM,
+    SnackStyle? snackStyle = SnackStyle.FLOATING,
+    Curve? forwardAnimationCurve,
+    Curve? reverseAnimationCurve,
+    Duration? animationDuration = const Duration(milliseconds: 400),
+  }) {
     if (value! != passController.text) {
       CustomHelper.buildSnackBar(
         context: context,
         title: "Something went wrong",
         message: "Password doesn't match!",
         state: SnackBarStates.error,
+        duration: duration,
+        forwardAnimationCurve: forwardAnimationCurve ?? Curves.easeInBack,
+        reverseAnimationCurve: reverseAnimationCurve ?? Curves.easeOutBack,
+        animationDuration: animationDuration,
+        snackPosition: snackPosition,
+        snackStyle: snackStyle,
       );
     } else if (value.isEmpty) {
       CustomHelper.buildSnackBar(
@@ -181,17 +256,38 @@ abstract class CustomHelper {
         title: "Something went wrong",
         message: "Confirm your Password!",
         state: SnackBarStates.error,
+        duration: duration,
+        forwardAnimationCurve: forwardAnimationCurve ?? Curves.easeInBack,
+        reverseAnimationCurve: reverseAnimationCurve ?? Curves.easeOutBack,
+        animationDuration: animationDuration,
+        snackPosition: snackPosition,
+        snackStyle: snackStyle,
       );
     }
   }
 
-  static void validatingNameField(String? value, BuildContext context) {
+  static void validatingNameField({
+    required BuildContext context,
+    String? value,
+    Duration? duration = const Duration(milliseconds: 3500),
+    SnackPosition? snackPosition = SnackPosition.BOTTOM,
+    SnackStyle? snackStyle = SnackStyle.FLOATING,
+    Curve? forwardAnimationCurve,
+    Curve? reverseAnimationCurve,
+    Duration? animationDuration = const Duration(milliseconds: 400),
+  }) {
     if (value!.isEmpty) {
       CustomHelper.buildSnackBar(
         context: context,
         title: "Something went wrong",
         message: "Name can't be blank!",
         state: SnackBarStates.error,
+        duration: duration,
+        forwardAnimationCurve: forwardAnimationCurve ?? Curves.easeInBack,
+        reverseAnimationCurve: reverseAnimationCurve ?? Curves.easeOutBack,
+        animationDuration: animationDuration,
+        snackPosition: snackPosition,
+        snackStyle: snackStyle,
       );
     }
   }
