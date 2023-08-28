@@ -15,6 +15,7 @@ class MyCustomButton extends StatelessWidget {
     this.elevation,
     this.backgroundColor,
     this.prefixWidget,
+    this.border,
   }) : super(key: key);
 
   final VoidCallback onPressed;
@@ -29,6 +30,7 @@ class MyCustomButton extends StatelessWidget {
   final Color? backgroundColor;
   final Gradient? gradient;
   final List<BoxShadow>? boxShadow;
+  final BoxBorder? border;
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +49,7 @@ class MyCustomButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(radius ?? 50.0),
             boxShadow: boxShadow,
             gradient: gradient,
+            border: border,
           ),
           child: hasPrefix
               ? Row(
