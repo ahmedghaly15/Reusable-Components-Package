@@ -291,4 +291,8 @@ abstract class CustomHelper {
       );
     }
   }
+
+  void keyboardUnfocus(BuildContext context) {
+    FocusScope.of(context).unfocus();
+  }
 }
