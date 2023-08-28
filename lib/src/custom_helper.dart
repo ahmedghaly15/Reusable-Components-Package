@@ -292,7 +292,7 @@ abstract class CustomHelper {
     }
   }
 
-  void keyboardUnfocus(BuildContext context) {
+  static void keyboardUnfocus(BuildContext context) {
     FocusScope.of(context).unfocus();
   }
 }
