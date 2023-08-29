@@ -53,4 +53,12 @@ abstract class CustomNavigator {
       arguments: arguments,
     );
   }
+
+  static void navigateAndFinishUntil(BuildContext context,
+      {required Widget screen}) {
+    Get.offUntil(
+      MaterialPageRoute(builder: (context) => screen),
+      (route) => false,
+    );
+  }
 }
