@@ -9,11 +9,15 @@ abstract class CustomHelper {
     Color systemNavigationBarColor = Colors.transparent,
     Color statusBarColor = Colors.transparent,
     Brightness statusBarBrightness = Brightness.light,
+    Brightness statusBarIconBrightness = Brightness.light,
+    Color systemNavigationBarDividerColor = Colors.white,
   }) {
     return SystemUiOverlayStyle(
       systemNavigationBarColor: systemNavigationBarColor,
       statusBarColor: statusBarColor,
       statusBarBrightness: statusBarBrightness,
+      statusBarIconBrightness: statusBarIconBrightness,
+      systemNavigationBarDividerColor: systemNavigationBarDividerColor,
     );
   }
 
