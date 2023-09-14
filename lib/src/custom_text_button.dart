@@ -4,14 +4,12 @@ class CustomTextButton extends StatelessWidget {
   const CustomTextButton({
     Key? key,
     required this.onTap,
-    required this.text,
-    this.textStyle,
+    required this.child,
     this.splashColor,
   }) : super(key: key);
 
   final VoidCallback? onTap;
-  final String text;
-  final TextStyle? textStyle;
+  final Widget child;
   final Color? splashColor;
 
   @override
@@ -21,7 +19,7 @@ class CustomTextButton extends StatelessWidget {
       child: InkWell(
         splashColor: splashColor,
         onTap: onTap,
-        child: Text(text, style: textStyle),
+        child: child,
       ),
     );
   }
