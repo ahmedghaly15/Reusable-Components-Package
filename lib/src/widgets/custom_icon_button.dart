@@ -39,20 +39,20 @@ class CustomIconButton extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       elevation: elevation ?? 0,
-      child: InkWell(
-        splashColor: splashColor,
-        onTap: onTap,
-        child: Container(
-          height: height ?? 40,
-          width: width ?? 40,
-          padding: padding,
-          margin: margin,
-          decoration: BoxDecoration(
-            color: backgroundColor,
-            borderRadius: shape == BoxShape.circle ? null : borderRadius,
-            boxShadow: boxShadow,
-            shape: shape,
-          ),
+      child: Container(
+        height: height ?? 40,
+        width: width ?? 40,
+        padding: padding,
+        margin: margin,
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: shape == BoxShape.circle ? null : borderRadius,
+          boxShadow: boxShadow,
+          shape: shape,
+        ),
+        child: InkWell(
+          splashColor: splashColor,
+          onTap: onTap,
           child: Center(
             child: Icon(
               icon,
