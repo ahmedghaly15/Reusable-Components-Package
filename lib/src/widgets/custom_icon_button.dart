@@ -9,7 +9,7 @@ class CustomIconButton extends StatelessWidget {
     required this.iconSize,
     this.height,
     this.width,
-    this.radius,
+    this.borderRadius,
     this.splashColor,
     this.elevation,
     this.boxShadow,
@@ -29,7 +29,7 @@ class CustomIconButton extends StatelessWidget {
   final Color? splashColor;
   final double? height;
   final double? width;
-  final double? radius;
+  final BorderRadiusGeometry? borderRadius;
   final double? elevation;
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
@@ -49,7 +49,7 @@ class CustomIconButton extends StatelessWidget {
           margin: margin,
           decoration: BoxDecoration(
             color: backgroundColor,
-            borderRadius: BorderRadius.circular(radius ?? 10),
+            borderRadius: shape == BoxShape.circle ? null : borderRadius,
             boxShadow: boxShadow,
             shape: shape,
           ),
