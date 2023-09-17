@@ -15,6 +15,8 @@ class CustomIconButton extends StatelessWidget {
     this.boxShadow,
     this.backgroundColor,
     this.shape = BoxShape.rectangle,
+    this.padding,
+    this.margin,
   }) : super(key: key);
 
   final IconData icon;
@@ -29,6 +31,8 @@ class CustomIconButton extends StatelessWidget {
   final double? width;
   final double? radius;
   final double? elevation;
+  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +45,8 @@ class CustomIconButton extends StatelessWidget {
         child: Container(
           height: height ?? 40,
           width: width ?? 40,
+          padding: padding,
+          margin: margin,
           decoration: BoxDecoration(
             color: backgroundColor,
             borderRadius: BorderRadius.circular(radius ?? 10),
