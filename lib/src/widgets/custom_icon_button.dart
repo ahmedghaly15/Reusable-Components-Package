@@ -53,10 +53,12 @@ class CustomIconButton extends StatelessWidget {
             boxShadow: boxShadow,
             shape: shape,
           ),
-          child: Icon(
-            icon,
-            color: iconColor,
-            size: iconSize,
+          child: Center(
+            child: Icon(
+              icon,
+              color: iconColor,
+              size: iconSize,
+            ),
           ),
         ),
       ),
