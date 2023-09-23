@@ -8,7 +8,7 @@ class MyCustomButton extends StatelessWidget {
     required this.hasPrefix,
     this.height,
     this.width,
-    this.radius,
+    this.borderRadius,
     this.splashColor,
     this.gradient,
     this.boxShadow,
@@ -24,7 +24,7 @@ class MyCustomButton extends StatelessWidget {
   final Widget? prefixWidget;
   final double? height;
   final double? width;
-  final double? radius;
+  final BorderRadius? borderRadius;
   final double? elevation;
   final Color? splashColor;
   final Color? backgroundColor;
@@ -39,14 +39,14 @@ class MyCustomButton extends StatelessWidget {
       elevation: elevation ?? 0,
       child: InkWell(
         splashColor: splashColor,
-        borderRadius: BorderRadius.circular(radius ?? 50.0),
+        borderRadius: borderRadius,
         onTap: onPressed,
         child: Container(
           height: height ?? 50,
           width: width ?? 150,
           decoration: BoxDecoration(
             color: backgroundColor,
-            borderRadius: BorderRadius.circular(radius ?? 50.0),
+            borderRadius: borderRadius,
             boxShadow: boxShadow,
             gradient: gradient,
             border: border,

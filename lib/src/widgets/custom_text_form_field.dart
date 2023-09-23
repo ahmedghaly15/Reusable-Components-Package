@@ -33,6 +33,9 @@ class CustomTextFormField extends StatelessWidget {
     this.focusedBorderWidth,
     this.enabledBorderWidth,
     this.errorBorderWidth,
+    this.focusedBorder,
+    this.enabledBorder,
+    this.errorBorder,
   }) : super(key: key);
 
   final FocusNode? focusNode;
@@ -56,10 +59,13 @@ class CustomTextFormField extends StatelessWidget {
   final double? radius;
   final Color? backgroundColor;
   final InputBorder? border;
+  final InputBorder? focusedBorder;
   final Color? focusedBorderColor;
   final double? focusedBorderWidth;
+  final InputBorder? enabledBorder;
   final Color? enabledBorderColor;
   final double? enabledBorderWidth;
+  final InputBorder? errorBorder;
   final Color? errorBorderColor;
   final double? errorBorderWidth;
   final Color? cursorColor;
@@ -91,18 +97,21 @@ class CustomTextFormField extends StatelessWidget {
                 vertical: 16.0,
                 horizontal: 16.0,
               ),
-          enabledBorder: buildOutlineInputBorder(
-            enabledBorderColor ?? Colors.white,
-            enabledBorderWidth ?? 0,
-          ),
-          focusedBorder: buildOutlineInputBorder(
-            focusedBorderColor ?? Colors.blue,
-            focusedBorderWidth ?? 2,
-          ),
-          errorBorder: buildOutlineInputBorder(
-            errorBorderColor ?? Colors.red,
-            errorBorderWidth ?? 0,
-          ),
+          enabledBorder: enabledBorder ??
+              buildOutlineInputBorder(
+                enabledBorderColor ?? Colors.white,
+                enabledBorderWidth ?? 0,
+              ),
+          focusedBorder: focusedBorder ??
+              buildOutlineInputBorder(
+                focusedBorderColor ?? Colors.blue,
+                focusedBorderWidth ?? 2,
+              ),
+          errorBorder: errorBorder ??
+              buildOutlineInputBorder(
+                errorBorderColor ?? Colors.red,
+                errorBorderWidth ?? 0,
+              ),
           border: border ?? InputBorder.none,
         ),
         style: style ??
