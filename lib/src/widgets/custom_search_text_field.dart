@@ -8,6 +8,7 @@ class CustomSearchTextField extends StatelessWidget {
     required this.searchTextFieldController,
     required this.hint,
     required this.hintStyle,
+    required this.style,
     this.height,
     this.width,
     this.contentPadding,
@@ -31,6 +32,7 @@ class CustomSearchTextField extends StatelessWidget {
   final TextEditingController searchTextFieldController;
   final String hint;
   final TextStyle hintStyle;
+  final TextStyle style;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final InputBorder? focusedBorder;
@@ -51,6 +53,7 @@ class CustomSearchTextField extends StatelessWidget {
       controller: searchTextFieldController,
       hint: hint,
       hintStyle: hintStyle,
+      style: style,
       contentPadding: contentPadding,
       boxShadow: boxShadow,
       suffixIcon: suffixIcon,
