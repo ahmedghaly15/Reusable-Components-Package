@@ -21,7 +21,6 @@ class CustomTextFormField extends StatelessWidget {
     this.width,
     this.contentPadding,
     this.boxShadow,
-    this.radius,
     this.suffixIconColor,
     this.prefixIconColor,
     this.border,
@@ -36,6 +35,7 @@ class CustomTextFormField extends StatelessWidget {
     this.focusedBorder,
     this.enabledBorder,
     this.errorBorder,
+    this.borderRadius,
   }) : super(key: key);
 
   final FocusNode? focusNode;
@@ -56,7 +56,7 @@ class CustomTextFormField extends StatelessWidget {
   final void Function(String)? onChanged;
   final double? height;
   final double? width;
-  final double? radius;
+  final BorderRadius? borderRadius;
   final Color? backgroundColor;
   final InputBorder? border;
   final InputBorder? focusedBorder;
@@ -79,7 +79,7 @@ class CustomTextFormField extends StatelessWidget {
       width: width ?? 380,
       decoration: BoxDecoration(
         color: backgroundColor ?? Colors.white,
-        borderRadius: BorderRadius.circular(radius ?? 10.0),
+        borderRadius: borderRadius,
         boxShadow: boxShadow,
       ),
       child: TextFormField(
@@ -128,6 +128,9 @@ class CustomTextFormField extends StatelessWidget {
         onFieldSubmitted: onSubmit,
         onEditingComplete: onEditingComplete,
         onChanged: onChanged,
+        onTapOutside: (event) {
+          FocusManager.instance.primaryFocus?.unfocus();
+        },
       ),
     );
   }
@@ -138,7 +141,7 @@ class CustomTextFormField extends StatelessWidget {
         color: color,
         width: width,
       ),
-      borderRadius: BorderRadius.circular(radius ?? 10),
+      borderRadius: borderRadius ?? const BorderRadius.all(Radius.circular(10)),
     );
   }
 }

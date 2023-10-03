@@ -5,23 +5,23 @@ import 'custom_text_form_field.dart';
 class CustomSearchTextField extends StatelessWidget {
   const CustomSearchTextField({
     Key? key,
+    required this.searchTextFieldController,
+    required this.hint,
+    required this.hintStyle,
     this.height,
     this.width,
     this.contentPadding,
     this.boxShadow,
-    required this.searchTextFieldController,
-    required this.hint,
-    required this.hintStyle,
-    this.suffixIconButton,
     this.suffixIcon,
-    this.suffixIconColor,
-    this.suffixIconSize,
-    this.suffixOnPressed,
-    this.prefixIconButton,
     this.prefixIcon,
-    this.prefixIconColor,
-    this.prefixIconSize,
-    this.prefixOnPressed,
+    this.focusedBorder,
+    this.enabledBorder,
+    this.errorBorder,
+    this.backgroundColor,
+    this.onSubmit,
+    this.cursorColor,
+    this.borderRadius,
+    this.border,
   }) : super(key: key);
 
   final double? height;
@@ -31,20 +31,21 @@ class CustomSearchTextField extends StatelessWidget {
   final TextEditingController searchTextFieldController;
   final String hint;
   final TextStyle hintStyle;
-  final Widget? suffixIconButton;
-  final IconData? suffixIcon;
-  final Color? suffixIconColor;
-  final double? suffixIconSize;
-  final VoidCallback? suffixOnPressed;
-  final Widget? prefixIconButton;
-  final IconData? prefixIcon;
-  final Color? prefixIconColor;
-  final double? prefixIconSize;
-  final VoidCallback? prefixOnPressed;
+  final Widget? suffixIcon;
+  final Widget? prefixIcon;
+  final InputBorder? focusedBorder;
+  final InputBorder? enabledBorder;
+  final InputBorder? errorBorder;
+  final Color? backgroundColor;
+  final Color? cursorColor;
+  final BorderRadius? borderRadius;
+  final InputBorder? border;
+  final void Function(String)? onSubmit;
 
   @override
   Widget build(BuildContext context) {
     return CustomTextFormField(
+      backgroundColor: backgroundColor,
       height: height ?? 50,
       width: width ?? 380,
       controller: searchTextFieldController,
@@ -52,26 +53,17 @@ class CustomSearchTextField extends StatelessWidget {
       hintStyle: hintStyle,
       contentPadding: contentPadding,
       boxShadow: boxShadow,
-      suffixIcon: suffixIconButton ??
-          IconButton(
-            icon: Icon(
-              suffixIcon ?? Icons.search,
-              color: suffixIconColor,
-              size: suffixIconSize,
-            ),
-            onPressed: suffixOnPressed,
-          ),
-      prefixIcon: prefixIconButton ??
-          IconButton(
-            onPressed: prefixOnPressed,
-            icon: Icon(
-              prefixIcon ?? Icons.search,
-              color: prefixIconColor,
-              size: prefixIconSize,
-            ),
-          ),
+      suffixIcon: suffixIcon,
+      prefixIcon: prefixIcon,
       textCapitalization: TextCapitalization.none,
       keyboardType: TextInputType.text,
+      cursorColor: cursorColor,
+      border: border,
+      enabledBorder: enabledBorder,
+      focusedBorder: focusedBorder,
+      errorBorder: errorBorder,
+      borderRadius: borderRadius,
+      onSubmit: onSubmit,
     );
   }
 }
