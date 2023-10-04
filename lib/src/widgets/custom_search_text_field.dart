@@ -23,6 +23,7 @@ class CustomSearchTextField extends StatelessWidget {
     this.cursorColor,
     this.borderRadius,
     this.border,
+    this.onChanged,
   }) : super(key: key);
 
   final double? height;
@@ -43,6 +44,7 @@ class CustomSearchTextField extends StatelessWidget {
   final BorderRadius? borderRadius;
   final InputBorder? border;
   final void Function(String)? onSubmit;
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -67,6 +69,7 @@ class CustomSearchTextField extends StatelessWidget {
       errorBorder: errorBorder,
       borderRadius: borderRadius,
       onSubmit: onSubmit,
+      onChanged: onChanged,
     );
   }
 }
