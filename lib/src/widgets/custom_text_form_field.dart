@@ -7,6 +7,7 @@ class CustomTextFormField extends StatelessWidget {
     required this.controller,
     required this.textCapitalization,
     required this.keyboardType,
+    this.enabled,
     this.backgroundColor,
     this.suffixIcon,
     this.focusNode,
@@ -38,6 +39,7 @@ class CustomTextFormField extends StatelessWidget {
     this.borderRadius,
   }) : super(key: key);
 
+  final bool? enabled;
   final FocusNode? focusNode;
   final String hint;
   final TextStyle? hintStyle;
@@ -83,6 +85,7 @@ class CustomTextFormField extends StatelessWidget {
         boxShadow: boxShadow,
       ),
       child: TextFormField(
+        enabled: enabled,
         controller: controller,
         focusNode: focusNode,
         decoration: InputDecoration(

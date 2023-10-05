@@ -9,6 +9,7 @@ class CustomSearchTextField extends StatelessWidget {
     required this.hint,
     required this.hintStyle,
     required this.style,
+    this.enabled,
     this.height,
     this.width,
     this.contentPadding,
@@ -26,6 +27,7 @@ class CustomSearchTextField extends StatelessWidget {
     this.onChanged,
   }) : super(key: key);
 
+  final bool? enabled;
   final double? height;
   final double? width;
   final EdgeInsetsGeometry? contentPadding;
@@ -49,6 +51,7 @@ class CustomSearchTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomTextFormField(
+      enabled: enabled,
       backgroundColor: backgroundColor,
       height: height ?? 50,
       width: width ?? 380,
