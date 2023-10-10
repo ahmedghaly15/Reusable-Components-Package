@@ -62,7 +62,7 @@ class CustomTextFormField extends StatelessWidget {
   final double? width;
   final BorderRadius? borderRadius;
   final Color? backgroundColor;
-  final InputBorder? border;
+  final BoxBorder? border;
   final InputBorder? focusedBorder;
   final Color? focusedBorderColor;
   final double? focusedBorderWidth;
@@ -85,6 +85,7 @@ class CustomTextFormField extends StatelessWidget {
         color: backgroundColor ?? Colors.white,
         borderRadius: borderRadius,
         boxShadow: boxShadow,
+        border: border,
       ),
       child: TextFormField(
         autofocus: autofocus,
@@ -118,7 +119,6 @@ class CustomTextFormField extends StatelessWidget {
                 errorBorderColor ?? Colors.red,
                 errorBorderWidth ?? 0,
               ),
-          border: border ?? InputBorder.none,
         ),
         style: style ??
             const TextStyle(

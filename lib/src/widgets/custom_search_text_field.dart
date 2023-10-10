@@ -46,7 +46,7 @@ class CustomSearchTextField extends StatelessWidget {
   final Color? backgroundColor;
   final Color? cursorColor;
   final BorderRadius? borderRadius;
-  final InputBorder? border;
+  final BoxBorder? border;
   final void Function(String)? onSubmit;
   final void Function(String)? onChanged;
 
