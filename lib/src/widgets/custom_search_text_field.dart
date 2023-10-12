@@ -26,6 +26,7 @@ class CustomSearchTextField extends StatelessWidget {
     this.borderRadius,
     this.border,
     this.onChanged,
+    this.textFieldBorder,
   }) : super(key: key);
 
   final bool autofocus;
@@ -49,6 +50,7 @@ class CustomSearchTextField extends StatelessWidget {
   final BoxBorder? border;
   final void Function(String)? onSubmit;
   final void Function(String)? onChanged;
+  final InputBorder? textFieldBorder;
 
   @override
   Widget build(BuildContext context) {
@@ -69,6 +71,7 @@ class CustomSearchTextField extends StatelessWidget {
       textCapitalization: TextCapitalization.none,
       keyboardType: TextInputType.text,
       cursorColor: cursorColor,
+      textFieldBorder: textFieldBorder,
       border: border,
       enabledBorder: enabledBorder,
       focusedBorder: focusedBorder,
