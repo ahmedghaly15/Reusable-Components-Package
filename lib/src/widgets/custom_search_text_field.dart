@@ -26,7 +26,7 @@ class CustomSearchTextField extends StatelessWidget {
     this.borderRadius,
     this.border,
     this.onChanged,
-    this.textFieldBorder,
+    this.textFieldBorder = InputBorder.none,
   }) : super(key: key);
 
   final bool autofocus;
