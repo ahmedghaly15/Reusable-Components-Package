@@ -122,7 +122,6 @@ class CustomTextFormField extends StatelessWidget {
                 errorBorderWidth ?? 0,
               ),
           focusedErrorBorder: focusedErrorBorder,
-          errorMaxLines: 0,
         ),
         style: style ??
             const TextStyle(
