@@ -89,53 +89,60 @@ class CustomTextFormField extends StatelessWidget {
         boxShadow: boxShadow,
         border: border,
       ),
-      child: TextFormField(
-        autofocus: autofocus,
-        enabled: enabled,
-        controller: controller,
-        focusNode: focusNode,
-        decoration: InputDecoration(
-          border: textFieldBorder,
-          suffixIcon: suffixIcon,
-          suffixIconColor: suffixIconColor,
-          prefixIcon: prefixIcon,
-          prefixIconColor: prefixIconColor,
-          hintText: hint,
-          hintStyle: hintStyle,
-          contentPadding: contentPadding,
-          enabledBorder: enabledBorder ??
-              buildOutlineInputBorder(
-                enabledBorderColor ?? Colors.white,
-                enabledBorderWidth ?? 0,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Expanded(
+            child: TextFormField(
+              autofocus: autofocus,
+              enabled: enabled,
+              controller: controller,
+              focusNode: focusNode,
+              decoration: InputDecoration(
+                border: textFieldBorder,
+                suffixIcon: suffixIcon,
+                suffixIconColor: suffixIconColor,
+                prefixIcon: prefixIcon,
+                prefixIconColor: prefixIconColor,
+                hintText: hint,
+                hintStyle: hintStyle,
+                contentPadding: contentPadding,
+                enabledBorder: enabledBorder ??
+                    buildOutlineInputBorder(
+                      enabledBorderColor ?? Colors.white,
+                      enabledBorderWidth ?? 0,
+                    ),
+                focusedBorder: focusedBorder ??
+                    buildOutlineInputBorder(
+                      focusedBorderColor ?? Colors.blue,
+                      focusedBorderWidth ?? 2,
+                    ),
+                errorBorder: errorBorder ??
+                    buildOutlineInputBorder(
+                      errorBorderColor ?? Colors.red,
+                      errorBorderWidth ?? 0,
+                    ),
               ),
-          focusedBorder: focusedBorder ??
-              buildOutlineInputBorder(
-                focusedBorderColor ?? Colors.blue,
-                focusedBorderWidth ?? 2,
-              ),
-          errorBorder: errorBorder ??
-              buildOutlineInputBorder(
-                errorBorderColor ?? Colors.red,
-                errorBorderWidth ?? 0,
-              ),
-        ),
-        style: style ??
-            const TextStyle(
-              color: Colors.black,
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
+              style: style ??
+                  const TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                  ),
+              cursorColor: cursorColor,
+              obscureText: obscure ?? false,
+              keyboardType: keyboardType,
+              textCapitalization: textCapitalization,
+              validator: validating,
+              onFieldSubmitted: onSubmit,
+              onEditingComplete: onEditingComplete,
+              onChanged: onChanged,
+              onTapOutside: (event) {
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
             ),
-        cursorColor: cursorColor,
-        obscureText: obscure ?? false,
-        keyboardType: keyboardType,
-        textCapitalization: textCapitalization,
-        validator: validating,
-        onFieldSubmitted: onSubmit,
-        onEditingComplete: onEditingComplete,
-        onChanged: onChanged,
-        onTapOutside: (event) {
-          FocusManager.instance.primaryFocus?.unfocus();
-        },
+          ),
+        ],
       ),
     );
   }
