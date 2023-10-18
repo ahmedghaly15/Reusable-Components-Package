@@ -80,65 +80,71 @@ class CustomTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height,
-      width: width,
-      decoration: BoxDecoration(
-        color: backgroundColor,
-        borderRadius: borderRadius,
-        boxShadow: boxShadow,
-        border: border,
-      ),
-      child: TextFormField(
-        autofocus: autofocus,
-        enabled: enabled,
-        controller: controller,
-        focusNode: focusNode,
-        decoration: InputDecoration(
-          border: textFieldBorder,
-          suffixIcon: suffixIcon,
-          suffixIconColor: suffixIconColor,
-          prefixIcon: prefixIcon,
-          prefixIconColor: prefixIconColor,
-          hintText: hint,
-          hintStyle: hintStyle,
-          contentPadding: contentPadding,
-          enabledBorder: enabledBorder ??
-              buildOutlineInputBorder(
-                enabledBorderColor ?? Colors.white,
-                enabledBorderWidth ?? 0,
-              ),
-          focusedBorder: focusedBorder ??
-              buildOutlineInputBorder(
-                focusedBorderColor ?? Colors.blue,
-                focusedBorderWidth ?? 2,
-              ),
-          errorBorder: errorBorder ??
-              buildOutlineInputBorder(
-                errorBorderColor ?? Colors.red,
-                errorBorderWidth ?? 0,
-              ),
-          errorMaxLines: 3,
+    return LayoutBuilder(builder: (
+      context,
+      constraints,
+    ) {
+      return Container(
+        height: constraints.maxHeight,
+        width: width,
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: borderRadius,
+          boxShadow: boxShadow,
+          border: border,
         ),
-        style: style ??
-            const TextStyle(
-              color: Colors.black,
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
-            ),
-        cursorColor: cursorColor,
-        obscureText: obscure ?? false,
-        keyboardType: keyboardType,
-        textCapitalization: textCapitalization,
-        validator: validating,
-        onFieldSubmitted: onSubmit,
-        onEditingComplete: onEditingComplete,
-        onChanged: onChanged,
-        onTapOutside: (event) {
-          FocusManager.instance.primaryFocus?.unfocus();
-        },
-      ),
-    );
+        child: TextFormField(
+          autofocus: autofocus,
+          enabled: enabled,
+          controller: controller,
+          focusNode: focusNode,
+          decoration: InputDecoration(
+            isDense: true,
+            border: textFieldBorder,
+            suffixIcon: suffixIcon,
+            suffixIconColor: suffixIconColor,
+            prefixIcon: prefixIcon,
+            prefixIconColor: prefixIconColor,
+            hintText: hint,
+            hintStyle: hintStyle,
+            contentPadding: contentPadding,
+            enabledBorder: enabledBorder ??
+                buildOutlineInputBorder(
+                  enabledBorderColor ?? Colors.white,
+                  enabledBorderWidth ?? 0,
+                ),
+            focusedBorder: focusedBorder ??
+                buildOutlineInputBorder(
+                  focusedBorderColor ?? Colors.blue,
+                  focusedBorderWidth ?? 2,
+                ),
+            errorBorder: errorBorder ??
+                buildOutlineInputBorder(
+                  errorBorderColor ?? Colors.red,
+                  errorBorderWidth ?? 0,
+                ),
+            errorMaxLines: 3,
+          ),
+          style: style ??
+              const TextStyle(
+                color: Colors.black,
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+          cursorColor: cursorColor,
+          obscureText: obscure ?? false,
+          keyboardType: keyboardType,
+          textCapitalization: textCapitalization,
+          validator: validating,
+          onFieldSubmitted: onSubmit,
+          onEditingComplete: onEditingComplete,
+          onChanged: onChanged,
+          onTapOutside: (event) {
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
+        ),
+      );
+    });
   }
 
   OutlineInputBorder buildOutlineInputBorder(Color color, double width) {
